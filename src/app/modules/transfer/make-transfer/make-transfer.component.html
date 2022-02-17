@@ -1,0 +1,90 @@
+<div class="transfer-container">
+  <div class="transfer-header">
+    <i class="lni lni-credit-cards me-2 lni-icon"></i>
+    <div><strong>Make</strong> Transfer</div>
+  </div>
+  <div class="transfer-content">
+    <form
+      #myForm="ngForm"
+      [formGroup]="transferForm"
+      (ngSubmit)="submit(myForm)"
+    >
+      <div class="input-group-container mb-3">
+        <label for="from-account">From Account</label>
+        <div class="input-group">
+          <input
+            id="from-account"
+            type="text"
+            class="form-control from-account-input"
+            placeholder="from account"
+            aria-label="from-account"
+            formControlName="fromAccount"
+            aria-describedby="from-account"
+            disabled
+          />
+        </div>
+      </div>
+      <div class="input-group-container mb-3">
+        <label for="to-account">To Account</label>
+        <div class="input-group mb-1">
+          <input
+            id="to-account"
+            type="text"
+            class="form-control"
+            [ngClass]="{
+              'input-has-error': formSubmitted && toAccount?.errors?.required
+            }"
+            placeholder="type an account name"
+            aria-label="to-account"
+            aria-describedby="to-account"
+            formControlName="toAccount"
+          />
+        </div>
+        <div
+          *ngIf="formSubmitted && toAccount?.errors?.required"
+          class="has-error"
+        >
+          This field is required
+        </div>
+      </div>
+      <div class="input-group-container mb-3">
+        <label for="amount">Amount</label>
+        <div class="input-group mb-1">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="amount">€</span>
+          </div>
+          <input
+            id="amount"
+            type="number"
+            class="form-control"
+            [ngClass]="{
+              'input-has-error': formSubmitted && toAccount?.errors?.required
+            }"
+            placeholder="specify the amount"
+            aria-label="amount"
+            aria-describedby="amount"
+            formControlName="amount"
+          />
+        </div>
+        <div
+          *ngIf="formSubmitted && amount?.errors?.required"
+          class="has-error"
+        >
+          This field is required
+        </div>
+        <div *ngIf="formSubmitted && amount?.errors?.min" class="has-error">
+          Amount can not be negative
+        </div>
+        <div
+          *ngIf="formSubmitted && amount?.errors?.amountInvalid"
+          class="has-error"
+        >
+          There is not enough balance
+        </div>
+      </div>
+      <div class="content-footer">
+        <app-submit-button></app-submit-button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/reset";
+@import "./assets/scss/base";
+@import "./assets/scss/transfer";
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+.btn-primary {
+  background-color: #ec6f31 !important;
+  border-color: #ec6f31 !important;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #ec6f31 !important;
+    border-color: #ec6f31 !important;
+  }
+}
+
+::placeholder {
+  font-style: italic;
+  font-size: 0.9rem;
+}

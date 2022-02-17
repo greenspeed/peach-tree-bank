@@ -1,0 +1,77 @@
+@import "../../app/modules/bb-ui/styles/vars";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.bank-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  div:last-child {
+    color: $primary-blue;
+  }
+}
+.footer {
+  height: 30px;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+  background-image: url("../background.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 0;
+}
+
+strong,
+b,
+strong *,
+b * {
+  font-weight: bold;
+}
+em,
+i,
+em *,
+i * {
+  font-style: italic;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.lni-icon {
+  font-size: 1.5rem;
+}
+
+.lni-search {
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+// overwrite the bootstrap prefix styling
+.input-group {
+  .input-group-text {
+    border-radius: 0.25rem 0 0 0.25rem;
+  }
+}

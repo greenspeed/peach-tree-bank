@@ -1,0 +1,34 @@
+<div class="modal-header">
+  <div class="modal-title"><strong>Review</strong> Transfer</div>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="mb-3"><em>Are you ready to send out this transfer?</em></div>
+  <div class="mb-2"><strong>It will be sent to account:</strong></div>
+  <p class="mb-3">{{ toAccount }}</p>
+  <div class="mb-2"><strong>With the amount of:</strong></div>
+  <p>{{ amount | currency: "EUR":"€ ":"1.0-2" | noComma }}</p>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close(false)"
+  >
+    Close
+  </button>
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="activeModal.close(true)"
+  >
+    Send Transfer
+  </button>
+</div>
